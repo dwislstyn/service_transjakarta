@@ -1,0 +1,18 @@
+2025/10/25 23:03:22 ❌ Gagal konek RabbitMQ:dial tcp: lookup rabbitmq: no such host
+2025/10/25 23:04:17 ❌ Gagal konek RabbitMQ:dial tcp: lookup rabbitmq: no such host
+2025/10/25 23:06:39 ✅ Worker siap menerima pesan...
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208872,"longitude":106.845817},"timestamp":1761406582,"vehicle_id":"D3456GHI"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208937,"longitude":106.845486},"timestamp":1761406584,"vehicle_id":"B5678ABC"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208911,"longitude":106.845603},"timestamp":1761406586,"vehicle_id":"E7890JKL"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208786,"longitude":106.84541},"timestamp":1761406588,"vehicle_id":"B1234XYZ"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208973,"longitude":106.845585},"timestamp":1761406592,"vehicle_id":"C9012DEF"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.209027,"longitude":106.8457},"timestamp":1761408056,"vehicle_id":"D3456GHI"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208662,"longitude":106.845645},"timestamp":1761408058,"vehicle_id":"B1234XYZ"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208877,"longitude":106.845737},"timestamp":1761408068,"vehicle_id":"C9012DEF"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208564,"longitude":106.845371},"timestamp":1761408076,"vehicle_id":"B5678ABC"}
+2025/10/25 23:06:39 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208822,"longitude":106.845675},"timestamp":1761408078,"vehicle_id":"E7890JKL"}
+2025/10/25 23:07:21 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208935,"longitude":106.845497},"timestamp":1761408441,"vehicle_id":"C9012DEF"}
+2025/10/25 23:07:23 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208865,"longitude":106.845445},"timestamp":1761408443,"vehicle_id":"B1234XYZ"}
+2025/10/25 23:07:29 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208636,"longitude":106.845397},"timestamp":1761408449,"vehicle_id":"D3456GHI"}
+2025/10/25 23:07:31 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.209027,"longitude":106.845567},"timestamp":1761408451,"vehicle_id":"E7890JKL"}
+2025/10/25 23:07:33 📥 Geofence Event Diterima: {"event":"geofence_entry","location":{"latitude":-6.208856,"longitude":106.845519},"timestamp":1761408453,"vehicle_id":"B5678ABC"}

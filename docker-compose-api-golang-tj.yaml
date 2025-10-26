@@ -1,0 +1,100 @@
+version: "3.9"
+
+services:
+  golang-api:
+    image: image-repo/builder/service_tj
+    hostname: msc-golang-api
+    container_name: msc-golang-api
+    ports:
+      - "7002:7002"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@postgres-db:5432/mydb?sslmode=disable
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+      - MQTT_BROKER_URL=tcp://mqtt-broker:1883
+      - DB_HOST=postgres-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_NAME=mydb
+      - DB_SSLMODE=disable
+    depends_on:
+      - postgres-db
+      - rabbitmq
+      - mqtt-broker
+    networks:
+      network_cluster_tj:
+        aliases:
+          - microservice-api-golang-local
+  postgres-db:
+    hostname: postgres-db
+    container_name: postgres-db
+    image: postgres:16-alpine
+    platform: linux/arm64  # penting untuk chip M1
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      network_cluster_tj:
+        aliases:
+          - postgres-db-local
+  rabbitmq:
+    hostname: rabbitmq
+    container_name: rabbitmq
+    image: rabbitmq:3-management-alpine
+    platform: linux/arm64
+    restart: always
+    ports:
+      - "5672:5672"   # port AMQP
+      - "15672:15672" # port dashboard RabbitMQ
+    networks:
+      network_cluster_tj:
+          aliases:
+            - rabbitmq-local
+  mqtt-broker:
+    hostname: mqtt-broker
+    container_name: mqtt-broker
+    image: eclipse-mosquitto:2.0
+    platform: linux/arm64
+    restart: always
+    ports:
+      - "1883:1883"   # MQTT port
+      - "9001:9001"   # WebSocket port (opsional)
+    volumes:
+      - ./api_golang_tj/libs/mqtt/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_config:/mosquitto/config
+      - mosquitto_log:/mosquitto/log
+    networks:
+      network_cluster_tj:
+          aliases:
+            - mqtt-broker-local
+  geofence-worker:
+      image: image-repo/builder/service_tj
+      container_name: geofence-worker
+      restart: always
+      command: ["./worker"]
+      environment:
+        - DATABASE_URL=postgres://postgres:postgres@postgres-db:5432/mydb?sslmode=disable
+        - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+        - MQTT_BROKER_URL=tcp://mqtt-broker:1883
+      networks:
+        network_cluster_tj:
+          aliases:
+            - geofence-worker-local
+      depends_on:
+        - rabbitmq
+volumes:
+  pgdata:
+  mosquitto_data:
+  mosquitto_config:
+  mosquitto_log:
+
+networks:
+  network_cluster_tj:
+    external: true
