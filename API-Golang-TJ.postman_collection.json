@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "4ee27ed1-0528-43dd-ae24-d61756183512",
+		"name": "API-Golang-TJ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14349306"
+	},
+	"item": [
+		{
+			"name": "inquiryLocation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7002/vehicles/B5678ABC/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"vehicles",
+						"B5678ABC",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inquiryListLocationHistory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7002/vehicles/B1234XYZ/history?start=1761410041&end=1761410153",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"vehicles",
+						"B1234XYZ",
+						"history"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1761410041"
+						},
+						{
+							"key": "end",
+							"value": "1761410153"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
